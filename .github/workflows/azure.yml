@@ -22,7 +22,7 @@ jobs:
         node-version: '12.16.1'
 
     - name: npm install, build, and test
-      working-directory: ./angularProductList
+      working-directory: .
       run: |
         npm install
         npm run build:prod
@@ -33,4 +33,4 @@ jobs:
         app-name: 'rcui'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
-        package: ./CangularProductList/dist/angularProductList
+        package: ./angularProductList/dist/angularProductList
