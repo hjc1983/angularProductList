@@ -25,7 +25,7 @@ jobs:
       working-directory: .
       run: |
         npm install
-        npm run build:prod
+        npm run build --prod
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
@@ -33,4 +33,4 @@ jobs:
         app-name: 'rcui'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
-        package: ./angularProductList/dist/angularProductList
+        package: ./dist/myAngular
