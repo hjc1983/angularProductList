@@ -36,11 +36,12 @@ jobs:
         npm install
         npm run build --prod
 
-    - uses: cschleiden/replace-tokens@v1
+    - name: Replace tokens
+      uses: cschleiden/replace-tokens@v1
       with:
         tokenPrefix: '#{'
         tokenSuffix: '}#'
-        files: '["**/*.js"]'
+        files: '["**/main.js"]'
       env:
         apiEndpoint: "https://rcui.azurewebsites.net/api"
 
