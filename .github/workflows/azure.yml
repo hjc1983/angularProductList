@@ -34,7 +34,7 @@ jobs:
       working-directory: .
       run: |
         npm install
-        npm run build --prod
+        ng build --prod
 
     - name: Replace tokens
       uses: cschleiden/replace-tokens@v1
