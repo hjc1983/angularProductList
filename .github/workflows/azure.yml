@@ -6,8 +6,7 @@ name: Build and deploy Angular app to Azure Web App
 on:
   push:
     branches:
-      - master
-      - main
+      - *
 
 jobs:
   build-and-deploy:
@@ -34,6 +33,14 @@ jobs:
       run: |
         npm install
         npm run build --prod
+
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+        files: '["**/*.js"]'
+      env:
+        apiEndpoint: "https://rcui.azurewebsites.net/api"
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
