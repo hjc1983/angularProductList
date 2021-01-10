@@ -41,7 +41,7 @@ jobs:
       with:
         tokenPrefix: '#{'
         tokenSuffix: '}#'
-        files: '["**/main.js"]'
+        files: '["**/main.*.js"]'
       env:
         apiEndpoint: "https://rcui.azurewebsites.net/api"
 
